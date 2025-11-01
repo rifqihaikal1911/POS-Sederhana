@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>POS Sederhana — Sistem Kasir</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>POS Sederhana — Kasir Interaktif</h1>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <span class="badge">Tugas UTS</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="catalog" aria-label="Katalog Produk">
+      <h2 style="margin-bottom:12px;">Katalog Produk</h2>
+
+      <div style="margin-bottom:10px; display:flex; gap:8px;">
+        <input id="search" placeholder="Cari produk..." />
+        <select id="categoryFilter">
+          <option value="">Semua</option>
+          <option value="minuman">Minuman</option>
+          <option value="makanan">Makanan</option>
+          <option value="lainnya">Lainnya</option>
+        </select>
+      </div>
+
+      <div class="grid" id="catalogGrid">
+      </div>
+    </section>
+
+    <aside class="pos" aria-label="Panel Transaksi">
+      <h2>Transaksi</h2>
+      <div class="transactions" id="transactionsWrap">
+        <table aria-label="Daftar Transaksi">
+          <thead>
+            <tr>
+              <th>Produk</th>
+              <th style="width:120px">Qty</th>
+              <th style="width:80px;text-align:right">Subtotal</th>
+              <th style="width:60px"></th>
+            </tr>
+          </thead>
+          <tbody id="txBody">
+          </tbody>
+        </table>
+      </div>
+
+<div class="summary">
+  <div>
+    <div style="color:var(--muted);font-size:0.9rem">Total Items: <span id="totalItems">0</span></div>
+    <div class="total">Total Bayar: Rp <span id="totalAmount">-</span></div>
+    <div id="calcNote" style="font-size:0.8rem;color:var(--muted);margin-top:6px;">Belum dihitung</div>
+  </div>
+
+  <div class="controls" style="flex-direction:column;align-items:flex-end;">
+    <button class="btn small" id="calcBtn" title="Hitung Total">Hitung Total</button>
+    <button class="btn secondary small" id="clearBtn" title="Hapus semua item" style="margin-top:8px">Kosongkan</button>
+  </div>
+</div>
+
+<div class="bottom-actions" style="margin-top:12px; display:flex; gap:8px; justify-content:space-between; align-items:center;">
+  <button id="checkout" class="btn" style="flex:1" disabled>Bayar</button>
+  <button id="print" class="btn secondary" style="flex:0.6">Cetak Ringkasan</button>
+</div>
+
+    </aside>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
